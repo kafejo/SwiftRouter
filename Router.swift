@@ -1,6 +1,6 @@
 //
-//  Router.swift
-//  Catergram
+//  SwiftRouter.swift
+//  SwiftRouter
 //
 //  Created by Ales Kocur on 21.12.2023.
 //
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Router<Route: Routeable>: ObservableObject {
+class SwiftRouter<Route: Routeable>: ObservableObject {
     @Published var path = NavigationPath()
 
     func popToRoot() {
@@ -36,15 +36,15 @@ protocol Routeable: Hashable {
 struct RouteableNavigationStack<Content: View, Route: Routeable>: View {
     // MARK: Lifecycle
 
-    init(_ routerType: Route.Type, @ViewBuilder content: @escaping (Router<Route>) -> Content) {
+    init(_ routerType: Route.Type, @ViewBuilder content: @escaping (SwiftRouter<Route>) -> Content) {
         self.content = content
     }
 
     // MARK: Internal
 
-    let content: (Router<Route>) -> Content
+    let content: (SwiftRouter<Route>) -> Content
 
-    @StateObject var router = Router<Route>()
+    @StateObject var router = SwiftRouter<Route>()
 
     var body: some View {
         NavigationStack(path: $router.path) {

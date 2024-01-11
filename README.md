@@ -1,6 +1,6 @@
 # SwiftRouter
 
-A convenience wrapper for NavigationStack
+A convenience wrapper for NavigationStack.
 
 # Motivation
 
@@ -59,7 +59,7 @@ struct MyRootView: View {
 }
 
 struct ContentView: View {
-    @EnvironmentObject var router: Router<MyRoutes>
+    @EnvironmentObject var router: SwiftRouter<MyRoutes>
 
     var body: some View {
         Button("Push") {
