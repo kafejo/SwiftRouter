@@ -40,6 +40,10 @@ struct RouteableNavigationStack<Content: View, Route: Routeable>: View {
         self.content = content
     }
 
+    init(_ routerType: Route.Type, @ViewBuilder content: @escaping () -> Content) {
+        self.content = { _ in content() }
+    }
+
     // MARK: Internal
 
     let content: (SwiftRouter<Route>) -> Content

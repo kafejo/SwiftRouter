@@ -52,7 +52,7 @@ You can access the router via environment object `Router<MyRoutes>` in all your 
 ```swift
 struct MyRootView: View {
     var body: some View {
-        RouteableNavigationStack(MyRoutes.self) { _ in
+        RouteableNavigationStack(MyRoutes.self) {
             ContentView()
         }
     }
@@ -75,7 +75,7 @@ You can also use `RouteableNavigationStack` in your previews. This makes it easi
 
 ```swift
 #Preview {
-    RouteableNavigationStack(MyRoutes.self) { router in
+    RouteableNavigationStack(MyRoutes.self) {
         ContentView()
     }
 }
